@@ -113,14 +113,17 @@
         }
     }
 
-    function renderLoading(renderId){
+    function renderLoading(renderId) {
 
-        var ele = $('#' + renderId);
-        var height = ele.outerHeight();
-        var width = ele.outerWidth();
-        var offset = ele.offset();
-
-        var loadingObj = $('<div style="text-align: center;vertical-align: middle;width:'+width+';height:'+height+';top:'+offset.top+';left: '+offset.left+';position:absolute;z-index:9999;background-color: whitesmoke;opacity: 0.5;"><img style="width:50px;height:50px;" src="../images/ajax4p-loading.gif" /></div>');
+        let ele = $('#' + renderId);
+        let height = ele.outerHeight();
+        let width = ele.outerWidth();
+        let offset = ele.offset();
+        let imageHtml='<div style="text-align: center;vertical-align: middle;width:' + width + ';height:' + height + ';top:' + offset.top + ';left: ' + offset.left + ';position:absolute;z-index:9999;background-color: whitesmoke;opacity: 0.5;"><img style="width:50px;height:50px;" src="../images/ajax4p-loading.gif" /></div>';
+        if(height<60){
+            imageHtml='<div style="text-align: center;vertical-align: middle;width:' + width + ';height:' + height + ';top:' + offset.top + ';left: ' + offset.left + ';position:absolute;z-index:9999;background-color: whitesmoke;opacity: 0.5;"></div>';
+        }
+        const loadingObj = $(imageHtml);
         ele.append(loadingObj);
     }
 
